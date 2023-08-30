@@ -28,7 +28,7 @@
 
       // .block-header__title--big
       &--big {
-         @include adaptiveValue("font-size", 64, 32);
+         @include adaptiveValue("font-size", 55, 32);
          line-height: math.div(76, 64);
       }
 
@@ -47,5 +47,93 @@
             margin-bottom: toRem(15);
          }
       }
+   }
+}
+
+.call-button {
+   font-weight: 700;
+   line-height: math.div(24, 20);
+   text-align: center;
+   color: #fff;
+   background-color: $ligthBlue;
+   border-radius: toRem(60);
+   padding: toRem(8) toRem(8) toRem(8) toRem(20);
+   transition: all 0.3s;
+
+   &:hover {
+   box-shadow: 0px 0px 50px -15px rgba(21, 178, 245, 0.5);
+   span::after{
+      animation: shake-top 0.8s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+   }
+   }
+
+   span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(12);
+
+      &::after {
+         content: '';
+         background: #fff url('@img/icons/phone.svg') center no-repeat;
+         flex: 0 0 toRem(48);
+         width: toRem(48);
+         height: toRem(48);
+         border-radius: 50%;
+      }
+   }
+}
+
+.done {
+   display: flex;
+   @include adaptiveValue("column-gap", 41, 24);
+   @include adaptiveValue("margin-bottom", 48, 24);
+
+   // .done__item
+   &__item {
+      @include adaptiveValue("font-size", 20, 12.5);
+      color: $ligthBlue;
+      background: url('@img/icons/check.svg') left toRem(2) no-repeat;
+      padding-left: toRem(30);
+      line-height: math.div(32, 20);
+   }
+}
+@keyframes shake-top {
+
+   0%,
+   100% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0;
+   }
+
+   10% {
+      -webkit-transform: rotate(2deg);
+      transform: rotate(2deg);
+   }
+
+   20%,
+   40%,
+   60% {
+      -webkit-transform: rotate(-4deg);
+      transform: rotate(-4deg);
+   }
+
+   30%,
+   50%,
+   70% {
+      -webkit-transform: rotate(4deg);
+      transform: rotate(4deg);
+   }
+
+   80% {
+      -webkit-transform: rotate(-2deg);
+      transform: rotate(-2deg);
+   }
+
+   90% {
+      -webkit-transform: rotate(2deg);
+      transform: rotate(2deg);
    }
 }
