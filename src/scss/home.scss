@@ -185,6 +185,7 @@
    position: absolute;
    bottom: 0;
    width: 100%;
+
    // .decor-hero__item
    &__item {
       position: absolute;
@@ -203,30 +204,114 @@
             bottom: 0;
             width: 0;
             height: 0;
-            transform: translate(99.5%,0px);
+            transform: translate(99.5%, 0px);
             border-top: 45px solid transparent;
             border-left: 50px solid #fff;
             border-bottom: 0px solid transparent;
-            
          }
       }
 
       &:last-child {
          right: 0;
+
          &::after {
-               content: '';
-               position: absolute;
-               left: 0;
-               bottom: 0;
-               width: 0;
-               height: 0;
-               transform: translate(-99.5%, 0px);
-               border-top: 45px solid transparent;
-               border-right: 50px solid #fff;
-               border-bottom: 0px solid transparent;
-            }
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            transform: translate(-99.5%, 0px);
+            border-top: 45px solid transparent;
+            border-right: 50px solid #fff;
+            border-bottom: 0px solid transparent;
+         }
       }
    }
 }
 
 //====================================================================================================
+
+.services {
+   @include adaptiveValue("padding-top", 123, 40);
+   @include adaptiveValue("padding-bottom", 64, 40);
+
+   // .services__container
+   &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width:$tablet) {
+         grid-template-columns: auto;
+         row-gap: toRem(36);
+      }
+   }
+
+   // .services__body
+   &__body {
+      @include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
+
+      @media (min-width:$tablet) {
+         max-width: toRem(580);
+         padding-right: toRem(20);
+      }
+   }
+
+   // .services__block-header
+   &__block-header {
+      @include adaptiveValue("margin-bottom", 56, 32);
+   }
+
+   // .services__items
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: toRem(32);
+      margin-bottom: toRem(56);
+
+      @media (max-width:$mobile) {
+         grid-template-columns: auto;
+      }
+   }
+
+   // .services__item
+   &__item {
+      background: url('@img/icons/check-blue.svg') 0 em(10, 20) no-repeat;
+      padding-left: toRem(28);
+      font-weight: 700;
+      font-size: toRem(20);
+      line-height: math.div(28, 20);
+      color: $darkBlueBg;
+   }
+
+   // .services__info
+   &__info {
+      border-radius: toRem(24);
+      background-color: $ligthBlue;
+      padding: toRem(12) toRem(32);
+      color: #fff;
+      line-height: math.div(28, 18);
+      @media (min-width:$tablet){
+         max-width: toRem(490);
+      }
+      a {
+         font-size: toRem(20);
+         font-weight: 600;
+
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+   }
+
+   // .services__image
+   &__image {
+      @media (max-width:$tablet) {
+         margin: 0 auto;
+      }
+
+      img {
+         max-width: 100%;
+      }
+   }
+}
